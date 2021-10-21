@@ -20,9 +20,7 @@
     </section>
 
     <section class="spells">
-      <div>
-        spells {{ id }}
-      </div>
+      <TheSpells :id="id" />
     </section>
 
   </section>
@@ -37,7 +35,7 @@ export default {
   },
   computed: {
     health() {
-       return Number(this.$store.state.player[`health${this.id}`])
+       return Number(this.$store.state.player[`p${this.id}`].health)
     }
   }
 }
@@ -45,7 +43,7 @@ export default {
 
 <style scoped>
     .playerdiv {
-        padding: 5%;
+        padding: 2%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -54,6 +52,14 @@ export default {
 
     section {
       border: 1px solid grey;
+    }
+
+    .avatar {
+      height: 200px;
+    }
+
+    img {
+      height: 100px;
     }
 
     .rotate {
