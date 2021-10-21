@@ -1,12 +1,19 @@
 <template>
     <section class="buffs">
-        <h1>debuffs</h1>
+        <h1> {{ debuffs }} </h1>
     </section>
 </template>
 
 <script>
 export default {
-
+    computed: {
+        debuffs() {
+            return this.$store.state.sessionStorage[`p${this.id}`].debuffs
+        }
+    },
+    props: {
+        id: String,
+    }
 }
 </script>
 

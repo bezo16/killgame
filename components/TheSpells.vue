@@ -21,12 +21,12 @@ export default {
                 this.$store.commit('sessionStorage/attack',{id:this.id, dmg:25})
             }
             if(spell === 'frostCurse') {
-                this.$store.commit('sessionStorage/dot',{id:this.id, dmg:25})
+                this.$store.commit('sessionStorage/dot',this.id)
             }
 
 
 
-
+            console.log(this.$store.state.sessionStorage[`p${this.id}`].debuffs.frostCurse)
             this.$store.commit('sessionStorage/endTurn')
         }
     }

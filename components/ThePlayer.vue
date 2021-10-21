@@ -2,11 +2,11 @@
   <section class="playerdiv" :style="`background:${color}`">
 
     <section class="buffs">
-      <TheBuffs />
+      <TheBuffs :id="id" />
     </section>
 
     <section class="debuffs">
-      <TheDebuffs />
+      <TheDebuffs :id="id" />
     </section>
 
     <section>
