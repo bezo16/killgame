@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     health() {
-       return Number(this.$store.state.player[`p${this.id}`].health)
+       return Number(this.$store.state.sessionStorage[`p${this.id}`].health)
     }
   }
 }

@@ -1,6 +1,7 @@
 <template>
     <section class="spells">
-        <button :disabled="turn" @click.stop="castSpell('frostArrow')" class="spell">FrostArrow</button>
+        <button :disabled="turn" @click.stop="castSpell('frostArrow')" class="spell">Frost arrow</button>
+        <button :disabled="turn" @click.stop="castSpell('frostCurse')" class="spell">Frost curse</button>
     </section>
 </template>
 
@@ -11,14 +12,22 @@ export default {
     },
     computed: {
         turn() {
-            return this.$store.state.player[`p${this.id}`].turn
+            return this.$store.state.sessionStorage[`p${this.id}`].turn
         },
     },
     methods: {
-        castSpell() {
-            console.log('kastujem spelik ' + this.turn)
-            this.$store.commit('player/attack',{id:this.id, dmg:25})
-            this.$store.commit('player/endTurn')
+        castSpell(spell) {
+            if(spell === 'frostArrow') {
+                this.$store.commit('sessionStorage/attack',{id:this.id, dmg:25})
+            }
+            if(spell === 'frostCurse') {
+                this.$store.commit('sessionStorage/dot',{id:this.id, dmg:25})
+            }
+
+
+
+
+            this.$store.commit('sessionStorage/endTurn')
         }
     }
 }
